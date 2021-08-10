@@ -25,10 +25,32 @@
                 "cellIndexCounts": {
                     "description": "Where to find number of cell indices",
                     "$ref": "#/definitions/DataFileInfo"
+                },
+                "topology": {
+                    "description": "What type of data is this? Should correspond to the UnityMeshTopology defined in https://github.umn.edu/ivlab-cs/ABRUtilities/blob/master/ABRDataFormat/abr_data_format/ABRDataFormat.py",
+                    "type": "string",
+                    "enum": ["Triangles", "Quads", "Lines", "LineStrip", "Points", "Volume"]
                 }
             }
+        },
+        "variables": {
+            "type": "array",
+            "description": "The actual data variables present inside at each point in the key data",
+            "items": {
+                "$ref": "#/definitions/DataVariable"
+            }
+        },
+        "attributes": {
+            "type": "array",
+            "description": "Data variables that are applied to this entire node",
+            "$ref": "#/definitions/DataVariable"
+        },
+        "transform": {
+            "description": "Hierarchical transform of this particular part of the data",
+            "$ref": "#/definitions/Matrix4x4"
         }
     },
+
     "definitions": {
         "Matrix4x4": {
             "type": "object",
@@ -55,7 +77,7 @@
         "DataPath": {
             "type": "string",
             "$comment": "Update whenever a new data source is added to the data server. Eventually should pull this bit of schema from the data server.",
-            "pattern": "^([^/]+)\/([^/]+)\/(KeyData|ScalarVar|VectorVar)\/([^/]+)$"
+            "pattern": "^([^/]+)\/([^/]+)\/(KeyData|Var\\d+)\/([^/]+)$"
         },
 
         "DataFileInfo": {
@@ -73,6 +95,39 @@
                 "length": {
                     "description": "Byte length in the `fileName` file",
                     "type": "integer"
+                }
+            }
+        },
+
+        "DataVariable": {
+            "properties": {
+                "path": {
+                    "description": "Path describing this variable",
+                    "$ref": "$/definitions/DataPath"
+                },
+                "shape": {
+                    "type": "object",
+                    "description": "Dimensionality of the var (e.g. Vector3: h=3 w=1, float: h=1 w=1)",
+                    "properties": {
+                        "height": {
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "width": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                },
+                "data": {
+                    "description": "External file where the actual data is located",
+                    "$ref": "#/definitions/DataFileInfo"
+                },
+                "minimum": {
+                    "description": "Global minimum value of the data variable (defined by the shape)"
+                },
+                "maximum": {
+                    "description": "Global maximum value of the data variable (defined by the shape)"
                 }
             }
         }
