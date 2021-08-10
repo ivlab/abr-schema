@@ -77,7 +77,7 @@
         "DataPath": {
             "type": "string",
             "$comment": "Update whenever a new data source is added to the data server. Eventually should pull this bit of schema from the data server.",
-            "pattern": "^([^/]+)\/([^/]+)\/(KeyData|Var\\d+)\/([^/]+)$"
+            "pattern": "^([^/]+)\/([^/]+)\/(KeyData|Var)\/([^/]+)$"
         },
 
         "DataFileInfo": {
@@ -103,7 +103,7 @@
             "properties": {
                 "path": {
                     "description": "Path describing this variable",
-                    "$ref": "$/definitions/DataPath"
+                    "$ref": "#/definitions/DataPath"
                 },
                 "shape": {
                     "type": "object",
