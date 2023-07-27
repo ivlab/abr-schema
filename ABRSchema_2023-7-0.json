@@ -228,7 +228,7 @@
                         "Visible": { "type": "boolean", "default": true }
                     }
                 },
-                "transform": {
+                "transformMatrix": {
                     "type": "object",
                     "description": "Local transform of this impression inside its containing data impression group.",
                     "$ref": "#/definitions/UnityObjects/Matrix4"
