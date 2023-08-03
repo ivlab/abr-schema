@@ -11,7 +11,7 @@
         "version": {
             "type": "string",
             "description": "Version of the schema this state was created with - semantic versioning (semver.org). Update the default whenever you update this schema.",
-            "default": "2.0.0"
+            "default": "2023.8.0"
         },
 
         "name": {
@@ -40,7 +40,7 @@
                     "patternProperties": {
                         "^([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}){1}$": { 
                             "type": "object",
-                            "required": ["impressions", "uuid", "name", "containerBounds", "transformMatrix"],
+                            "required": ["impressions", "uuid", "name"],
                             "properties": {
                                 "impressions": {
                                     "type": "array",
