@@ -497,7 +497,12 @@
                 "properties": {
                     "Key Data": {
                         "properties": {
-                                "inputType": { "const": "IVLab.ABREngine.PointKeyData" },
+                                "inputType": {
+                                    "oneOf": [
+                                        {"const": "IVLab.ABREngine.PointKeyData" },
+                                        {"const": "IVLab.ABREngine.KeyData" }
+                                    ]
+                                },
                                 "parameterName": { "const": "Key Data" },
                                 "inputGenre": { "const": "KeyData" },
                                 "inputValue": { "$ref": "#/definitions/InputStringTypes/DataPath" }
@@ -582,7 +587,12 @@
                 "properties": {
                     "Key Data": {
                         "properties": {
-                            "inputType": { "const": "IVLab.ABREngine.LineKeyData" },
+                                "inputType": {
+                                    "oneOf": [
+                                        {"const": "IVLab.ABREngine.LineKeyData" },
+                                        {"const": "IVLab.ABREngine.KeyData" }
+                                    ]
+                                },
                             "parameterName": { "const": "Key Data"},
                             "inputGenre": { "const": "KeyData" },
                             "inputValue": { "$ref": "#/definitions/InputStringTypes/DataPath" }
@@ -686,7 +696,12 @@
                 "properties": {
                     "Key Data": {
                         "properties": {
-                            "inputType": { "const": "IVLab.ABREngine.SurfaceKeyData" },
+                                "inputType": {
+                                    "oneOf": [
+                                        {"const": "IVLab.ABREngine.SurfaceKeyData" },
+                                        {"const": "IVLab.ABREngine.KeyData" }
+                                    ]
+                                },
                             "parameterName": { "const": "Key Data" },
                             "inputGenre": { "const": "KeyData" },
                             "inputValue": { "$ref": "#/definitions/InputStringTypes/DataPath" }
@@ -777,7 +792,12 @@
                     "Key Data": {
                         "description": "Volume data source.",
                         "properties": {
-                                "inputType": { "const": "IVLab.ABREngine.VolumeKeyData" },
+                                "inputType": {
+                                    "oneOf": [
+                                        {"const": "IVLab.ABREngine.VolumeKeyData" },
+                                        {"const": "IVLab.ABREngine.KeyData" }
+                                    ]
+                                },
                                 "parameterName": { "const": "Key Data" },
                                 "inputGenre": { "const": "KeyData" },
                                 "inputValue": { "$ref": "#/definitions/InputStringTypes/DataPath" }
