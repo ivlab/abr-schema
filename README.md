@@ -1,5 +1,8 @@
 # ABR Schema
 
+THIS REPOSITORY IS ARCHIVED. ABR Schemas are now maintained in the
+[ABREngine-UnityPackage](https://github.com/ivlab/ABREngine-UnityPackage).
+
 Schemas for Artifact-Based Rendering and its surrounding architectures.
 
 
